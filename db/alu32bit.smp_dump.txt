@@ -1,0 +1,6 @@
+
+State Machine - |alu_32bit|mod_32bit:ins8|mod_cu:state_machine|current_state
+Name current_state.state1 current_state.state3 current_state.state2 
+current_state.state1 0 0 0 
+current_state.state2 1 0 1 
+current_state.state3 1 1 0 

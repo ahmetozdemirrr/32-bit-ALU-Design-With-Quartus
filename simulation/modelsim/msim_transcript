@@ -1,0 +1,215 @@
+# do alu32bit_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+# vmap work rtl_work 
+# Copying /home/ahmete/intelFPGA_lite/20.1/modelsim_ase/linuxaloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+/home/ahmete/hw1 {/home/ahmete/hw1/alu_32bit.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 19:45:13 on Dec 10,2023
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+/home/ahmete/hw1" /home/ahmete/hw1/alu_32bit.v 
+# -- Compiling module alu_32bit
+# 
+# Top level modules:
+# 	alu_32bit
+# End time: 19:45:13 on Dec 10,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+/home/ahmete/hw1 {/home/ahmete/hw1/mod_32bit.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 19:45:13 on Dec 10,2023
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+/home/ahmete/hw1" /home/ahmete/hw1/mod_32bit.v 
+# -- Compiling module mod_32bit
+# 
+# Top level modules:
+# 	mod_32bit
+# End time: 19:45:13 on Dec 10,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+/home/ahmete/hw1 {/home/ahmete/hw1/mod_cu.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 19:45:13 on Dec 10,2023
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+/home/ahmete/hw1" /home/ahmete/hw1/mod_cu.v 
+# -- Compiling module mod_cu
+# 
+# Top level modules:
+# 	mod_cu
+# End time: 19:45:13 on Dec 10,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+/home/ahmete/hw1 {/home/ahmete/hw1/mod_dp.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 19:45:13 on Dec 10,2023
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+/home/ahmete/hw1" /home/ahmete/hw1/mod_dp.v 
+# -- Compiling module mod_dp
+# 
+# Top level modules:
+# 	mod_dp
+# End time: 19:45:13 on Dec 10,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+/home/ahmete/hw1 {/home/ahmete/hw1/cla_adder4bit.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 19:45:13 on Dec 10,2023
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+/home/ahmete/hw1" /home/ahmete/hw1/cla_adder4bit.v 
+# -- Compiling module cla_adder4bit
+# 
+# Top level modules:
+# 	cla_adder4bit
+# End time: 19:45:13 on Dec 10,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+/home/ahmete/hw1 {/home/ahmete/hw1/less_than32bit.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 19:45:13 on Dec 10,2023
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+/home/ahmete/hw1" /home/ahmete/hw1/less_than32bit.v 
+# -- Compiling module less_than32bit
+# 
+# Top level modules:
+# 	less_than32bit
+# End time: 19:45:13 on Dec 10,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+/home/ahmete/hw1 {/home/ahmete/hw1/sub_add_32bit.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 19:45:13 on Dec 10,2023
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+/home/ahmete/hw1" /home/ahmete/hw1/sub_add_32bit.v 
+# -- Compiling module sub_add_32bit
+# 
+# Top level modules:
+# 	sub_add_32bit
+# End time: 19:45:13 on Dec 10,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+/home/ahmete/hw1 {/home/ahmete/hw1/cla_32bit.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 19:45:13 on Dec 10,2023
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+/home/ahmete/hw1" /home/ahmete/hw1/cla_32bit.v 
+# -- Compiling module cla_32bit
+# 
+# Top level modules:
+# 	cla_32bit
+# End time: 19:45:13 on Dec 10,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+/home/ahmete/hw1 {/home/ahmete/hw1/nor_32bit.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 19:45:13 on Dec 10,2023
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+/home/ahmete/hw1" /home/ahmete/hw1/nor_32bit.v 
+# -- Compiling module nor_32bit
+# 
+# Top level modules:
+# 	nor_32bit
+# End time: 19:45:13 on Dec 10,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+/home/ahmete/hw1 {/home/ahmete/hw1/xor_32bit.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 19:45:13 on Dec 10,2023
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+/home/ahmete/hw1" /home/ahmete/hw1/xor_32bit.v 
+# -- Compiling module xor_32bit
+# 
+# Top level modules:
+# 	xor_32bit
+# End time: 19:45:13 on Dec 10,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+/home/ahmete/hw1 {/home/ahmete/hw1/or_32bit.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 19:45:13 on Dec 10,2023
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+/home/ahmete/hw1" /home/ahmete/hw1/or_32bit.v 
+# -- Compiling module or_32bit
+# 
+# Top level modules:
+# 	or_32bit
+# End time: 19:45:13 on Dec 10,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+/home/ahmete/hw1 {/home/ahmete/hw1/and_32bit.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 19:45:13 on Dec 10,2023
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+/home/ahmete/hw1" /home/ahmete/hw1/and_32bit.v 
+# -- Compiling module and_32bit
+# 
+# Top level modules:
+# 	and_32bit
+# End time: 19:45:13 on Dec 10,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+/home/ahmete/hw1 {/home/ahmete/hw1/mux_8x1_bit.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 19:45:13 on Dec 10,2023
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+/home/ahmete/hw1" /home/ahmete/hw1/mux_8x1_bit.v 
+# -- Compiling module mux_8x1_1bit
+# 
+# Top level modules:
+# 	mux_8x1_1bit
+# End time: 19:45:13 on Dec 10,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+/home/ahmete/hw1 {/home/ahmete/hw1/mux_8x1_4bit.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 19:45:13 on Dec 10,2023
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+/home/ahmete/hw1" /home/ahmete/hw1/mux_8x1_4bit.v 
+# -- Compiling module mux_8x1_4bit
+# 
+# Top level modules:
+# 	mux_8x1_4bit
+# End time: 19:45:13 on Dec 10,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+/home/ahmete/hw1 {/home/ahmete/hw1/mux_8x1_32bit.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 19:45:13 on Dec 10,2023
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+/home/ahmete/hw1" /home/ahmete/hw1/mux_8x1_32bit.v 
+# -- Compiling module mux_8x1_32bit
+# 
+# Top level modules:
+# 	mux_8x1_32bit
+# End time: 19:45:13 on Dec 10,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vlog -vlog01compat -work work +incdir+/home/ahmete/hw1 {/home/ahmete/hw1/testbench.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 19:45:13 on Dec 10,2023
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+/home/ahmete/hw1" /home/ahmete/hw1/testbench.v 
+# -- Compiling module testbench
+# 
+# Top level modules:
+# 	testbench
+# End time: 19:45:13 on Dec 10,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  testbench
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" testbench 
+# Start time: 19:45:13 on Dec 10,2023
+# Loading work.testbench
+# Loading work.alu_32bit
+# Loading work.and_32bit
+# Loading work.or_32bit
+# Loading work.xor_32bit
+# Loading work.nor_32bit
+# Loading work.sub_add_32bit
+# Loading work.cla_32bit
+# Loading work.cla_adder4bit
+# Loading work.less_than32bit
+# Loading work.mod_32bit
+# Loading work.mod_cu
+# Loading work.mod_dp
+# Loading work.mux_8x1_32bit
+# Loading work.mux_8x1_4bit
+# Loading work.mux_8x1_1bit
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run -all
+# AND result: 01100000000000000000000000000100
+# OR result: 01100000000000000000000000001101
+# XOR result: 01100000000000000000000000001010
+# NOR result: 11111111111111111111111111110010
+# LESS THAN result (ex1): 00000000000000000000000000000000
+# LESS THAN result (ex2): 00000000000000000000000000000001
+# ADD result: 00000000000000000000000000010001
+# SUB result (ex1): 00000000000000000000000000000111
+# SUB result (ex2): 11111111111111111111111111111001
+# MOD result: 00000000000000000000000000000010
+# FINISH
+# ** Note: $stop    : /home/ahmete/hw1/testbench.v(57)
+#    Time: 1109 ps  Iteration: 0  Instance: /testbench
+# Break in Module testbench at /home/ahmete/hw1/testbench.v line 57
+# End time: 19:54:49 on Dec 10,2023, Elapsed time: 0:09:36
+# Errors: 0, Warnings: 0

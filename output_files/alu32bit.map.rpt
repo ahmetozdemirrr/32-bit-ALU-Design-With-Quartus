@@ -1,0 +1,633 @@
+Analysis & Synthesis report for alu32bit
+Sun Dec 10 19:44:03 2023
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |alu_32bit|mod_32bit:ins8|mod_cu:state_machine|current_state
+  9. General Register Statistics
+ 10. Parameter Settings for User Entity Instance: mod_32bit:ins8|mod_cu:state_machine
+ 11. Port Connectivity Checks: "mod_32bit:ins8|mod_dp:data_path|sub_add_32bit:substract_ALU"
+ 12. Port Connectivity Checks: "mod_32bit:ins8|mod_dp:data_path|less_than32bit:compare_ALU"
+ 13. Port Connectivity Checks: "less_than32bit:ins7|sub_add_32bit:ins1"
+ 14. Port Connectivity Checks: "sub_add_32bit:ins5|cla_32bit:cla1|cla_adder4bit:F28_31"
+ 15. Post-Synthesis Netlist Statistics for Top Partition
+ 16. Elapsed Time Per Partition
+ 17. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Sun Dec 10 19:44:03 2023       ;
+; Quartus Prime Version           ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Revision Name                   ; alu32bit                                    ;
+; Top-level Entity Name           ; alu_32bit                                   ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 132                                         ;
+; Total pins                      ; 101                                         ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 0                                           ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CGXFC7C7F23C8     ;                    ;
+; Top-level entity name                                                           ; alu_32bit          ; alu32bit           ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-4         ;   0.0%      ;
++----------------------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                    ;
++----------------------------------+-----------------+------------------------+-----------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path      ; Library ;
++----------------------------------+-----------------+------------------------+-----------------------------------+---------+
+; alu_32bit.v                      ; yes             ; User Verilog HDL File  ; /home/ahmete/hw1/alu_32bit.v      ;         ;
+; mod_32bit.v                      ; yes             ; User Verilog HDL File  ; /home/ahmete/hw1/mod_32bit.v      ;         ;
+; mod_cu.v                         ; yes             ; User Verilog HDL File  ; /home/ahmete/hw1/mod_cu.v         ;         ;
+; mod_dp.v                         ; yes             ; User Verilog HDL File  ; /home/ahmete/hw1/mod_dp.v         ;         ;
+; cla_adder4bit.v                  ; yes             ; User Verilog HDL File  ; /home/ahmete/hw1/cla_adder4bit.v  ;         ;
+; less_than32bit.v                 ; yes             ; User Verilog HDL File  ; /home/ahmete/hw1/less_than32bit.v ;         ;
+; sub_add_32bit.v                  ; yes             ; User Verilog HDL File  ; /home/ahmete/hw1/sub_add_32bit.v  ;         ;
+; cla_32bit.v                      ; yes             ; User Verilog HDL File  ; /home/ahmete/hw1/cla_32bit.v      ;         ;
+; nor_32bit.v                      ; yes             ; User Verilog HDL File  ; /home/ahmete/hw1/nor_32bit.v      ;         ;
+; xor_32bit.v                      ; yes             ; User Verilog HDL File  ; /home/ahmete/hw1/xor_32bit.v      ;         ;
+; or_32bit.v                       ; yes             ; User Verilog HDL File  ; /home/ahmete/hw1/or_32bit.v       ;         ;
+; and_32bit.v                      ; yes             ; User Verilog HDL File  ; /home/ahmete/hw1/and_32bit.v      ;         ;
+; mux_8x1_bit.v                    ; yes             ; User Verilog HDL File  ; /home/ahmete/hw1/mux_8x1_bit.v    ;         ;
+; mux_8x1_4bit.v                   ; yes             ; User Verilog HDL File  ; /home/ahmete/hw1/mux_8x1_4bit.v   ;         ;
+; mux_8x1_32bit.v                  ; yes             ; User Verilog HDL File  ; /home/ahmete/hw1/mux_8x1_32bit.v  ;         ;
++----------------------------------+-----------------+------------------------+-----------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimate of Logic utilization (ALMs needed) ; 292       ;
+;                                             ;           ;
+; Combinational ALUT usage for logic          ; 499       ;
+;     -- 7 input functions                    ; 21        ;
+;     -- 6 input functions                    ; 64        ;
+;     -- 5 input functions                    ; 69        ;
+;     -- 4 input functions                    ; 173       ;
+;     -- <=3 input functions                  ; 172       ;
+;                                             ;           ;
+; Dedicated logic registers                   ; 132       ;
+;                                             ;           ;
+; I/O pins                                    ; 101       ;
+;                                             ;           ;
+; Total DSP Blocks                            ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; rst~input ;
+; Maximum fan-out                             ; 229       ;
+; Total fan-out                               ; 2600      ;
+; Average fan-out                             ; 3.12      ;
++---------------------------------------------+-----------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                              ;
++------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------------------------------------------------+----------------+--------------+
+; Compilation Hierarchy Node               ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                          ; Entity Name    ; Library Name ;
++------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------------------------------------------------+----------------+--------------+
+; |alu_32bit                               ; 499 (0)             ; 132 (0)                   ; 0                 ; 0          ; 101  ; 0            ; |alu_32bit                                                                                                                   ; alu_32bit      ; work         ;
+;    |less_than32bit:ins7|                 ; 26 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|less_than32bit:ins7                                                                                               ; less_than32bit ; work         ;
+;       |sub_add_32bit:ins1|               ; 26 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|less_than32bit:ins7|sub_add_32bit:ins1                                                                            ; sub_add_32bit  ; work         ;
+;          |cla_32bit:cla1|                ; 26 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|less_than32bit:ins7|sub_add_32bit:ins1|cla_32bit:cla1                                                             ; cla_32bit      ; work         ;
+;             |cla_adder4bit:F12_15|       ; 13 (13)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|less_than32bit:ins7|sub_add_32bit:ins1|cla_32bit:cla1|cla_adder4bit:F12_15                                        ; cla_adder4bit  ; work         ;
+;             |cla_adder4bit:F16_19|       ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|less_than32bit:ins7|sub_add_32bit:ins1|cla_32bit:cla1|cla_adder4bit:F16_19                                        ; cla_adder4bit  ; work         ;
+;             |cla_adder4bit:F20_23|       ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|less_than32bit:ins7|sub_add_32bit:ins1|cla_32bit:cla1|cla_adder4bit:F20_23                                        ; cla_adder4bit  ; work         ;
+;             |cla_adder4bit:F24_27|       ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|less_than32bit:ins7|sub_add_32bit:ins1|cla_32bit:cla1|cla_adder4bit:F24_27                                        ; cla_adder4bit  ; work         ;
+;             |cla_adder4bit:F28_31|       ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|less_than32bit:ins7|sub_add_32bit:ins1|cla_32bit:cla1|cla_adder4bit:F28_31                                        ; cla_adder4bit  ; work         ;
+;    |mod_32bit:ins8|                      ; 333 (0)             ; 132 (0)                   ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|mod_32bit:ins8                                                                                                    ; mod_32bit      ; work         ;
+;       |mod_cu:state_machine|             ; 3 (3)               ; 3 (3)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|mod_32bit:ins8|mod_cu:state_machine                                                                               ; mod_cu         ; work         ;
+;       |mod_dp:data_path|                 ; 330 (225)           ; 129 (129)                 ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|mod_32bit:ins8|mod_dp:data_path                                                                                   ; mod_dp         ; work         ;
+;          |less_than32bit:compare_ALU|    ; 35 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|mod_32bit:ins8|mod_dp:data_path|less_than32bit:compare_ALU                                                        ; less_than32bit ; work         ;
+;             |sub_add_32bit:ins1|         ; 35 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|mod_32bit:ins8|mod_dp:data_path|less_than32bit:compare_ALU|sub_add_32bit:ins1                                     ; sub_add_32bit  ; work         ;
+;                |cla_32bit:cla1|          ; 35 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|mod_32bit:ins8|mod_dp:data_path|less_than32bit:compare_ALU|sub_add_32bit:ins1|cla_32bit:cla1                      ; cla_32bit      ; work         ;
+;                   |cla_adder4bit:F0_3|   ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|mod_32bit:ins8|mod_dp:data_path|less_than32bit:compare_ALU|sub_add_32bit:ins1|cla_32bit:cla1|cla_adder4bit:F0_3   ; cla_adder4bit  ; work         ;
+;                   |cla_adder4bit:F12_15| ; 5 (5)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|mod_32bit:ins8|mod_dp:data_path|less_than32bit:compare_ALU|sub_add_32bit:ins1|cla_32bit:cla1|cla_adder4bit:F12_15 ; cla_adder4bit  ; work         ;
+;                   |cla_adder4bit:F16_19| ; 5 (5)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|mod_32bit:ins8|mod_dp:data_path|less_than32bit:compare_ALU|sub_add_32bit:ins1|cla_32bit:cla1|cla_adder4bit:F16_19 ; cla_adder4bit  ; work         ;
+;                   |cla_adder4bit:F20_23| ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|mod_32bit:ins8|mod_dp:data_path|less_than32bit:compare_ALU|sub_add_32bit:ins1|cla_32bit:cla1|cla_adder4bit:F20_23 ; cla_adder4bit  ; work         ;
+;                   |cla_adder4bit:F24_27| ; 5 (5)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|mod_32bit:ins8|mod_dp:data_path|less_than32bit:compare_ALU|sub_add_32bit:ins1|cla_32bit:cla1|cla_adder4bit:F24_27 ; cla_adder4bit  ; work         ;
+;                   |cla_adder4bit:F28_31| ; 5 (5)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|mod_32bit:ins8|mod_dp:data_path|less_than32bit:compare_ALU|sub_add_32bit:ins1|cla_32bit:cla1|cla_adder4bit:F28_31 ; cla_adder4bit  ; work         ;
+;                   |cla_adder4bit:F4_7|   ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|mod_32bit:ins8|mod_dp:data_path|less_than32bit:compare_ALU|sub_add_32bit:ins1|cla_32bit:cla1|cla_adder4bit:F4_7   ; cla_adder4bit  ; work         ;
+;                   |cla_adder4bit:F8_11|  ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|mod_32bit:ins8|mod_dp:data_path|less_than32bit:compare_ALU|sub_add_32bit:ins1|cla_32bit:cla1|cla_adder4bit:F8_11  ; cla_adder4bit  ; work         ;
+;          |sub_add_32bit:substract_ALU|   ; 70 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|mod_32bit:ins8|mod_dp:data_path|sub_add_32bit:substract_ALU                                                       ; sub_add_32bit  ; work         ;
+;             |cla_32bit:cla1|             ; 70 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|mod_32bit:ins8|mod_dp:data_path|sub_add_32bit:substract_ALU|cla_32bit:cla1                                        ; cla_32bit      ; work         ;
+;                |cla_adder4bit:F0_3|      ; 9 (9)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|mod_32bit:ins8|mod_dp:data_path|sub_add_32bit:substract_ALU|cla_32bit:cla1|cla_adder4bit:F0_3                     ; cla_adder4bit  ; work         ;
+;                |cla_adder4bit:F12_15|    ; 10 (10)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|mod_32bit:ins8|mod_dp:data_path|sub_add_32bit:substract_ALU|cla_32bit:cla1|cla_adder4bit:F12_15                   ; cla_adder4bit  ; work         ;
+;                |cla_adder4bit:F16_19|    ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|mod_32bit:ins8|mod_dp:data_path|sub_add_32bit:substract_ALU|cla_32bit:cla1|cla_adder4bit:F16_19                   ; cla_adder4bit  ; work         ;
+;                |cla_adder4bit:F20_23|    ; 10 (10)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|mod_32bit:ins8|mod_dp:data_path|sub_add_32bit:substract_ALU|cla_32bit:cla1|cla_adder4bit:F20_23                   ; cla_adder4bit  ; work         ;
+;                |cla_adder4bit:F24_27|    ; 9 (9)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|mod_32bit:ins8|mod_dp:data_path|sub_add_32bit:substract_ALU|cla_32bit:cla1|cla_adder4bit:F24_27                   ; cla_adder4bit  ; work         ;
+;                |cla_adder4bit:F28_31|    ; 5 (5)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|mod_32bit:ins8|mod_dp:data_path|sub_add_32bit:substract_ALU|cla_32bit:cla1|cla_adder4bit:F28_31                   ; cla_adder4bit  ; work         ;
+;                |cla_adder4bit:F4_7|      ; 9 (9)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|mod_32bit:ins8|mod_dp:data_path|sub_add_32bit:substract_ALU|cla_32bit:cla1|cla_adder4bit:F4_7                     ; cla_adder4bit  ; work         ;
+;                |cla_adder4bit:F8_11|     ; 10 (10)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|mod_32bit:ins8|mod_dp:data_path|sub_add_32bit:substract_ALU|cla_32bit:cla1|cla_adder4bit:F8_11                    ; cla_adder4bit  ; work         ;
+;    |mux_8x1_32bit:m1|                    ; 57 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|mux_8x1_32bit:m1                                                                                                  ; mux_8x1_32bit  ; work         ;
+;       |mux_8x1_4bit:m1|                  ; 7 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|mux_8x1_32bit:m1|mux_8x1_4bit:m1                                                                                  ; mux_8x1_4bit   ; work         ;
+;          |mux_8x1_1bit:m1|               ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|mux_8x1_32bit:m1|mux_8x1_4bit:m1|mux_8x1_1bit:m1                                                                  ; mux_8x1_1bit   ; work         ;
+;          |mux_8x1_1bit:m2|               ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|mux_8x1_32bit:m1|mux_8x1_4bit:m1|mux_8x1_1bit:m2                                                                  ; mux_8x1_1bit   ; work         ;
+;          |mux_8x1_1bit:m3|               ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|mux_8x1_32bit:m1|mux_8x1_4bit:m1|mux_8x1_1bit:m3                                                                  ; mux_8x1_1bit   ; work         ;
+;          |mux_8x1_1bit:m4|               ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|mux_8x1_32bit:m1|mux_8x1_4bit:m1|mux_8x1_1bit:m4                                                                  ; mux_8x1_1bit   ; work         ;
+;       |mux_8x1_4bit:m2|                  ; 8 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|mux_8x1_32bit:m1|mux_8x1_4bit:m2                                                                                  ; mux_8x1_4bit   ; work         ;
+;          |mux_8x1_1bit:m1|               ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|mux_8x1_32bit:m1|mux_8x1_4bit:m2|mux_8x1_1bit:m1                                                                  ; mux_8x1_1bit   ; work         ;
+;          |mux_8x1_1bit:m2|               ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|mux_8x1_32bit:m1|mux_8x1_4bit:m2|mux_8x1_1bit:m2                                                                  ; mux_8x1_1bit   ; work         ;
+;          |mux_8x1_1bit:m3|               ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|mux_8x1_32bit:m1|mux_8x1_4bit:m2|mux_8x1_1bit:m3                                                                  ; mux_8x1_1bit   ; work         ;
+;          |mux_8x1_1bit:m4|               ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|mux_8x1_32bit:m1|mux_8x1_4bit:m2|mux_8x1_1bit:m4                                                                  ; mux_8x1_1bit   ; work         ;
+;       |mux_8x1_4bit:m3|                  ; 8 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|mux_8x1_32bit:m1|mux_8x1_4bit:m3                                                                                  ; mux_8x1_4bit   ; work         ;
+;          |mux_8x1_1bit:m1|               ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|mux_8x1_32bit:m1|mux_8x1_4bit:m3|mux_8x1_1bit:m1                                                                  ; mux_8x1_1bit   ; work         ;
+;          |mux_8x1_1bit:m2|               ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|mux_8x1_32bit:m1|mux_8x1_4bit:m3|mux_8x1_1bit:m2                                                                  ; mux_8x1_1bit   ; work         ;
+;          |mux_8x1_1bit:m3|               ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|mux_8x1_32bit:m1|mux_8x1_4bit:m3|mux_8x1_1bit:m3                                                                  ; mux_8x1_1bit   ; work         ;
+;          |mux_8x1_1bit:m4|               ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|mux_8x1_32bit:m1|mux_8x1_4bit:m3|mux_8x1_1bit:m4                                                                  ; mux_8x1_1bit   ; work         ;
+;       |mux_8x1_4bit:m4|                  ; 5 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|mux_8x1_32bit:m1|mux_8x1_4bit:m4                                                                                  ; mux_8x1_4bit   ; work         ;
+;          |mux_8x1_1bit:m1|               ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|mux_8x1_32bit:m1|mux_8x1_4bit:m4|mux_8x1_1bit:m1                                                                  ; mux_8x1_1bit   ; work         ;
+;          |mux_8x1_1bit:m2|               ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|mux_8x1_32bit:m1|mux_8x1_4bit:m4|mux_8x1_1bit:m2                                                                  ; mux_8x1_1bit   ; work         ;
+;          |mux_8x1_1bit:m3|               ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|mux_8x1_32bit:m1|mux_8x1_4bit:m4|mux_8x1_1bit:m3                                                                  ; mux_8x1_1bit   ; work         ;
+;          |mux_8x1_1bit:m4|               ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|mux_8x1_32bit:m1|mux_8x1_4bit:m4|mux_8x1_1bit:m4                                                                  ; mux_8x1_1bit   ; work         ;
+;       |mux_8x1_4bit:m5|                  ; 5 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|mux_8x1_32bit:m1|mux_8x1_4bit:m5                                                                                  ; mux_8x1_4bit   ; work         ;
+;          |mux_8x1_1bit:m1|               ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|mux_8x1_32bit:m1|mux_8x1_4bit:m5|mux_8x1_1bit:m1                                                                  ; mux_8x1_1bit   ; work         ;
+;          |mux_8x1_1bit:m2|               ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|mux_8x1_32bit:m1|mux_8x1_4bit:m5|mux_8x1_1bit:m2                                                                  ; mux_8x1_1bit   ; work         ;
+;          |mux_8x1_1bit:m3|               ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|mux_8x1_32bit:m1|mux_8x1_4bit:m5|mux_8x1_1bit:m3                                                                  ; mux_8x1_1bit   ; work         ;
+;          |mux_8x1_1bit:m4|               ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|mux_8x1_32bit:m1|mux_8x1_4bit:m5|mux_8x1_1bit:m4                                                                  ; mux_8x1_1bit   ; work         ;
+;       |mux_8x1_4bit:m6|                  ; 7 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|mux_8x1_32bit:m1|mux_8x1_4bit:m6                                                                                  ; mux_8x1_4bit   ; work         ;
+;          |mux_8x1_1bit:m1|               ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|mux_8x1_32bit:m1|mux_8x1_4bit:m6|mux_8x1_1bit:m1                                                                  ; mux_8x1_1bit   ; work         ;
+;          |mux_8x1_1bit:m2|               ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|mux_8x1_32bit:m1|mux_8x1_4bit:m6|mux_8x1_1bit:m2                                                                  ; mux_8x1_1bit   ; work         ;
+;          |mux_8x1_1bit:m3|               ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|mux_8x1_32bit:m1|mux_8x1_4bit:m6|mux_8x1_1bit:m3                                                                  ; mux_8x1_1bit   ; work         ;
+;          |mux_8x1_1bit:m4|               ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|mux_8x1_32bit:m1|mux_8x1_4bit:m6|mux_8x1_1bit:m4                                                                  ; mux_8x1_1bit   ; work         ;
+;       |mux_8x1_4bit:m7|                  ; 8 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|mux_8x1_32bit:m1|mux_8x1_4bit:m7                                                                                  ; mux_8x1_4bit   ; work         ;
+;          |mux_8x1_1bit:m1|               ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|mux_8x1_32bit:m1|mux_8x1_4bit:m7|mux_8x1_1bit:m1                                                                  ; mux_8x1_1bit   ; work         ;
+;          |mux_8x1_1bit:m2|               ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|mux_8x1_32bit:m1|mux_8x1_4bit:m7|mux_8x1_1bit:m2                                                                  ; mux_8x1_1bit   ; work         ;
+;          |mux_8x1_1bit:m3|               ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|mux_8x1_32bit:m1|mux_8x1_4bit:m7|mux_8x1_1bit:m3                                                                  ; mux_8x1_1bit   ; work         ;
+;          |mux_8x1_1bit:m4|               ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|mux_8x1_32bit:m1|mux_8x1_4bit:m7|mux_8x1_1bit:m4                                                                  ; mux_8x1_1bit   ; work         ;
+;       |mux_8x1_4bit:m8|                  ; 9 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|mux_8x1_32bit:m1|mux_8x1_4bit:m8                                                                                  ; mux_8x1_4bit   ; work         ;
+;          |mux_8x1_1bit:m1|               ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|mux_8x1_32bit:m1|mux_8x1_4bit:m8|mux_8x1_1bit:m1                                                                  ; mux_8x1_1bit   ; work         ;
+;          |mux_8x1_1bit:m2|               ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|mux_8x1_32bit:m1|mux_8x1_4bit:m8|mux_8x1_1bit:m2                                                                  ; mux_8x1_1bit   ; work         ;
+;          |mux_8x1_1bit:m3|               ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|mux_8x1_32bit:m1|mux_8x1_4bit:m8|mux_8x1_1bit:m3                                                                  ; mux_8x1_1bit   ; work         ;
+;          |mux_8x1_1bit:m4|               ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|mux_8x1_32bit:m1|mux_8x1_4bit:m8|mux_8x1_1bit:m4                                                                  ; mux_8x1_1bit   ; work         ;
+;    |sub_add_32bit:ins5|                  ; 82 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|sub_add_32bit:ins5                                                                                                ; sub_add_32bit  ; work         ;
+;       |cla_32bit:cla1|                   ; 69 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|sub_add_32bit:ins5|cla_32bit:cla1                                                                                 ; cla_32bit      ; work         ;
+;          |cla_adder4bit:F0_3|            ; 6 (6)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|sub_add_32bit:ins5|cla_32bit:cla1|cla_adder4bit:F0_3                                                              ; cla_adder4bit  ; work         ;
+;          |cla_adder4bit:F12_15|          ; 10 (10)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|sub_add_32bit:ins5|cla_32bit:cla1|cla_adder4bit:F12_15                                                            ; cla_adder4bit  ; work         ;
+;          |cla_adder4bit:F16_19|          ; 10 (10)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|sub_add_32bit:ins5|cla_32bit:cla1|cla_adder4bit:F16_19                                                            ; cla_adder4bit  ; work         ;
+;          |cla_adder4bit:F20_23|          ; 10 (10)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|sub_add_32bit:ins5|cla_32bit:cla1|cla_adder4bit:F20_23                                                            ; cla_adder4bit  ; work         ;
+;          |cla_adder4bit:F24_27|          ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|sub_add_32bit:ins5|cla_32bit:cla1|cla_adder4bit:F24_27                                                            ; cla_adder4bit  ; work         ;
+;          |cla_adder4bit:F28_31|          ; 9 (9)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|sub_add_32bit:ins5|cla_32bit:cla1|cla_adder4bit:F28_31                                                            ; cla_adder4bit  ; work         ;
+;          |cla_adder4bit:F4_7|            ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|sub_add_32bit:ins5|cla_32bit:cla1|cla_adder4bit:F4_7                                                              ; cla_adder4bit  ; work         ;
+;          |cla_adder4bit:F8_11|           ; 9 (9)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|sub_add_32bit:ins5|cla_32bit:cla1|cla_adder4bit:F8_11                                                             ; cla_adder4bit  ; work         ;
+;       |xor_32bit:xor1|                   ; 13 (13)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|sub_add_32bit:ins5|xor_32bit:xor1                                                                                 ; xor_32bit      ; work         ;
+;    |xor_32bit:ins3|                      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu_32bit|xor_32bit:ins3                                                                                                    ; xor_32bit      ; work         ;
++------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------------------------------------------------+----------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------+
+; State Machine - |alu_32bit|mod_32bit:ins8|mod_cu:state_machine|current_state              ;
++----------------------+----------------------+----------------------+----------------------+
+; Name                 ; current_state.state1 ; current_state.state3 ; current_state.state2 ;
++----------------------+----------------------+----------------------+----------------------+
+; current_state.state1 ; 0                    ; 0                    ; 0                    ;
+; current_state.state2 ; 1                    ; 0                    ; 1                    ;
+; current_state.state3 ; 1                    ; 1                    ; 0                    ;
++----------------------+----------------------+----------------------+----------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 132   ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 100   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 129   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mod_32bit:ins8|mod_cu:state_machine ;
++----------------+-------+---------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                    ;
++----------------+-------+---------------------------------------------------------+
+; state1         ; 00    ; Unsigned Binary                                         ;
+; state2         ; 01    ; Unsigned Binary                                         ;
+; state3         ; 10    ; Unsigned Binary                                         ;
++----------------+-------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "mod_32bit:ins8|mod_dp:data_path|sub_add_32bit:substract_ALU" ;
++--------+-------+----------+-------------------------------------------------------------+
+; Port   ; Type  ; Severity ; Details                                                     ;
++--------+-------+----------+-------------------------------------------------------------+
+; alu_op ; Input ; Info     ; Stuck at VCC                                                ;
++--------+-------+----------+-------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "mod_32bit:ins8|mod_dp:data_path|less_than32bit:compare_ALU"                                  ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port          ; Type   ; Severity ; Details                                                                             ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; result[31..1] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "less_than32bit:ins7|sub_add_32bit:ins1"                                                       ;
++----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port           ; Type   ; Severity ; Details                                                                             ;
++----------------+--------+----------+-------------------------------------------------------------------------------------+
+; res_sub[30..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; alu_op         ; Input  ; Info     ; Stuck at VCC                                                                        ;
++----------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "sub_add_32bit:ins5|cla_32bit:cla1|cla_adder4bit:F28_31"                              ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; Port  ; Type   ; Severity ; Details                                                                             ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; c_out ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 132                         ;
+;     CLR               ; 3                           ;
+;     ENA               ; 32                          ;
+;     ENA CLR           ; 97                          ;
+; arriav_lcell_comb     ; 499                         ;
+;     extend            ; 21                          ;
+;         7 data inputs ; 21                          ;
+;     normal            ; 478                         ;
+;         2 data inputs ; 110                         ;
+;         3 data inputs ; 62                          ;
+;         4 data inputs ; 173                         ;
+;         5 data inputs ; 69                          ;
+;         6 data inputs ; 64                          ;
+; boundary_port         ; 101                         ;
+;                       ;                             ;
+; Max LUT depth         ; 9.00                        ;
+; Average LUT depth     ; 4.64                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+    Info: Processing started: Sun Dec 10 19:43:56 2023
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off alu32bit -c alu32bit
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file alu_32bit.v
+    Info (12023): Found entity 1: alu_32bit File: /home/ahmete/hw1/alu_32bit.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file mod_32bit.v
+    Info (12023): Found entity 1: mod_32bit File: /home/ahmete/hw1/mod_32bit.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file mod_cu.v
+    Info (12023): Found entity 1: mod_cu File: /home/ahmete/hw1/mod_cu.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file mod_dp.v
+    Info (12023): Found entity 1: mod_dp File: /home/ahmete/hw1/mod_dp.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file cla_adder4bit.v
+    Info (12023): Found entity 1: cla_adder4bit File: /home/ahmete/hw1/cla_adder4bit.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file less_than32bit.v
+    Info (12023): Found entity 1: less_than32bit File: /home/ahmete/hw1/less_than32bit.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file sub_add_32bit.v
+    Info (12023): Found entity 1: sub_add_32bit File: /home/ahmete/hw1/sub_add_32bit.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file cla_32bit.v
+    Info (12023): Found entity 1: cla_32bit File: /home/ahmete/hw1/cla_32bit.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file nor_32bit.v
+    Info (12023): Found entity 1: nor_32bit File: /home/ahmete/hw1/nor_32bit.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file xor_32bit.v
+    Info (12023): Found entity 1: xor_32bit File: /home/ahmete/hw1/xor_32bit.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file or_32bit.v
+    Info (12023): Found entity 1: or_32bit File: /home/ahmete/hw1/or_32bit.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file and_32bit.v
+    Info (12023): Found entity 1: and_32bit File: /home/ahmete/hw1/and_32bit.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file mux_8x1_bit.v
+    Info (12023): Found entity 1: mux_8x1_1bit File: /home/ahmete/hw1/mux_8x1_bit.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file mux_8x1_4bit.v
+    Info (12023): Found entity 1: mux_8x1_4bit File: /home/ahmete/hw1/mux_8x1_4bit.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file mux_8x1_32bit.v
+    Info (12023): Found entity 1: mux_8x1_32bit File: /home/ahmete/hw1/mux_8x1_32bit.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file testbench.v
+    Info (12023): Found entity 1: testbench File: /home/ahmete/hw1/testbench.v Line: 1
+Warning (10236): Verilog HDL Implicit Net warning at alu_32bit.v(23): created implicit net for "temp1" File: /home/ahmete/hw1/alu_32bit.v Line: 23
+Warning (10236): Verilog HDL Implicit Net warning at cla_32bit.v(13): created implicit net for "c_out" File: /home/ahmete/hw1/cla_32bit.v Line: 13
+Info (12127): Elaborating entity "alu_32bit" for the top level hierarchy
+Info (12128): Elaborating entity "and_32bit" for hierarchy "and_32bit:ins1" File: /home/ahmete/hw1/alu_32bit.v Line: 13
+Info (12128): Elaborating entity "or_32bit" for hierarchy "or_32bit:ins2" File: /home/ahmete/hw1/alu_32bit.v Line: 14
+Info (12128): Elaborating entity "xor_32bit" for hierarchy "xor_32bit:ins3" File: /home/ahmete/hw1/alu_32bit.v Line: 15
+Info (12128): Elaborating entity "nor_32bit" for hierarchy "nor_32bit:ins4" File: /home/ahmete/hw1/alu_32bit.v Line: 16
+Info (12128): Elaborating entity "sub_add_32bit" for hierarchy "sub_add_32bit:ins5" File: /home/ahmete/hw1/alu_32bit.v Line: 17
+Info (12128): Elaborating entity "cla_32bit" for hierarchy "sub_add_32bit:ins5|cla_32bit:cla1" File: /home/ahmete/hw1/sub_add_32bit.v Line: 42
+Info (12128): Elaborating entity "cla_adder4bit" for hierarchy "sub_add_32bit:ins5|cla_32bit:cla1|cla_adder4bit:F0_3" File: /home/ahmete/hw1/cla_32bit.v Line: 5
+Info (12128): Elaborating entity "less_than32bit" for hierarchy "less_than32bit:ins7" File: /home/ahmete/hw1/alu_32bit.v Line: 19
+Warning (10739): Verilog HDL warning at less_than32bit.v(9): actual bit length 32 differs from formal bit length 1 File: /home/ahmete/hw1/less_than32bit.v Line: 9
+Warning (10739): Verilog HDL warning at less_than32bit.v(10): actual bit length 32 differs from formal bit length 1 File: /home/ahmete/hw1/less_than32bit.v Line: 10
+Warning (10739): Verilog HDL warning at less_than32bit.v(11): actual bit length 32 differs from formal bit length 1 File: /home/ahmete/hw1/less_than32bit.v Line: 11
+Warning (10739): Verilog HDL warning at less_than32bit.v(12): actual bit length 32 differs from formal bit length 1 File: /home/ahmete/hw1/less_than32bit.v Line: 12
+Warning (10739): Verilog HDL warning at less_than32bit.v(13): actual bit length 32 differs from formal bit length 1 File: /home/ahmete/hw1/less_than32bit.v Line: 13
+Warning (10739): Verilog HDL warning at less_than32bit.v(14): actual bit length 32 differs from formal bit length 1 File: /home/ahmete/hw1/less_than32bit.v Line: 14
+Warning (10739): Verilog HDL warning at less_than32bit.v(15): actual bit length 32 differs from formal bit length 1 File: /home/ahmete/hw1/less_than32bit.v Line: 15
+Warning (10739): Verilog HDL warning at less_than32bit.v(16): actual bit length 32 differs from formal bit length 1 File: /home/ahmete/hw1/less_than32bit.v Line: 16
+Warning (10739): Verilog HDL warning at less_than32bit.v(17): actual bit length 32 differs from formal bit length 1 File: /home/ahmete/hw1/less_than32bit.v Line: 17
+Warning (10739): Verilog HDL warning at less_than32bit.v(18): actual bit length 32 differs from formal bit length 1 File: /home/ahmete/hw1/less_than32bit.v Line: 18
+Warning (10739): Verilog HDL warning at less_than32bit.v(19): actual bit length 32 differs from formal bit length 1 File: /home/ahmete/hw1/less_than32bit.v Line: 19
+Warning (10739): Verilog HDL warning at less_than32bit.v(20): actual bit length 32 differs from formal bit length 1 File: /home/ahmete/hw1/less_than32bit.v Line: 20
+Warning (10739): Verilog HDL warning at less_than32bit.v(21): actual bit length 32 differs from formal bit length 1 File: /home/ahmete/hw1/less_than32bit.v Line: 21
+Warning (10739): Verilog HDL warning at less_than32bit.v(22): actual bit length 32 differs from formal bit length 1 File: /home/ahmete/hw1/less_than32bit.v Line: 22
+Warning (10739): Verilog HDL warning at less_than32bit.v(23): actual bit length 32 differs from formal bit length 1 File: /home/ahmete/hw1/less_than32bit.v Line: 23
+Warning (10739): Verilog HDL warning at less_than32bit.v(24): actual bit length 32 differs from formal bit length 1 File: /home/ahmete/hw1/less_than32bit.v Line: 24
+Warning (10739): Verilog HDL warning at less_than32bit.v(25): actual bit length 32 differs from formal bit length 1 File: /home/ahmete/hw1/less_than32bit.v Line: 25
+Warning (10739): Verilog HDL warning at less_than32bit.v(26): actual bit length 32 differs from formal bit length 1 File: /home/ahmete/hw1/less_than32bit.v Line: 26
+Warning (10739): Verilog HDL warning at less_than32bit.v(27): actual bit length 32 differs from formal bit length 1 File: /home/ahmete/hw1/less_than32bit.v Line: 27
+Warning (10739): Verilog HDL warning at less_than32bit.v(28): actual bit length 32 differs from formal bit length 1 File: /home/ahmete/hw1/less_than32bit.v Line: 28
+Warning (10739): Verilog HDL warning at less_than32bit.v(29): actual bit length 32 differs from formal bit length 1 File: /home/ahmete/hw1/less_than32bit.v Line: 29
+Warning (10739): Verilog HDL warning at less_than32bit.v(30): actual bit length 32 differs from formal bit length 1 File: /home/ahmete/hw1/less_than32bit.v Line: 30
+Warning (10739): Verilog HDL warning at less_than32bit.v(31): actual bit length 32 differs from formal bit length 1 File: /home/ahmete/hw1/less_than32bit.v Line: 31
+Warning (10739): Verilog HDL warning at less_than32bit.v(32): actual bit length 32 differs from formal bit length 1 File: /home/ahmete/hw1/less_than32bit.v Line: 32
+Warning (10739): Verilog HDL warning at less_than32bit.v(33): actual bit length 32 differs from formal bit length 1 File: /home/ahmete/hw1/less_than32bit.v Line: 33
+Warning (10739): Verilog HDL warning at less_than32bit.v(34): actual bit length 32 differs from formal bit length 1 File: /home/ahmete/hw1/less_than32bit.v Line: 34
+Warning (10739): Verilog HDL warning at less_than32bit.v(35): actual bit length 32 differs from formal bit length 1 File: /home/ahmete/hw1/less_than32bit.v Line: 35
+Warning (10739): Verilog HDL warning at less_than32bit.v(36): actual bit length 32 differs from formal bit length 1 File: /home/ahmete/hw1/less_than32bit.v Line: 36
+Warning (10739): Verilog HDL warning at less_than32bit.v(37): actual bit length 32 differs from formal bit length 1 File: /home/ahmete/hw1/less_than32bit.v Line: 37
+Warning (10739): Verilog HDL warning at less_than32bit.v(38): actual bit length 32 differs from formal bit length 1 File: /home/ahmete/hw1/less_than32bit.v Line: 38
+Warning (10739): Verilog HDL warning at less_than32bit.v(39): actual bit length 32 differs from formal bit length 1 File: /home/ahmete/hw1/less_than32bit.v Line: 39
+Warning (10739): Verilog HDL warning at less_than32bit.v(40): actual bit length 32 differs from formal bit length 1 File: /home/ahmete/hw1/less_than32bit.v Line: 40
+Info (12128): Elaborating entity "mod_32bit" for hierarchy "mod_32bit:ins8" File: /home/ahmete/hw1/alu_32bit.v Line: 20
+Info (12128): Elaborating entity "mod_cu" for hierarchy "mod_32bit:ins8|mod_cu:state_machine" File: /home/ahmete/hw1/mod_32bit.v Line: 5
+Info (12128): Elaborating entity "mod_dp" for hierarchy "mod_32bit:ins8|mod_dp:data_path" File: /home/ahmete/hw1/mod_32bit.v Line: 6
+Info (12128): Elaborating entity "mux_8x1_32bit" for hierarchy "mux_8x1_32bit:m1" File: /home/ahmete/hw1/alu_32bit.v Line: 26
+Info (12128): Elaborating entity "mux_8x1_4bit" for hierarchy "mux_8x1_32bit:m1|mux_8x1_4bit:m1" File: /home/ahmete/hw1/mux_8x1_32bit.v Line: 3
+Info (12128): Elaborating entity "mux_8x1_1bit" for hierarchy "mux_8x1_32bit:m1|mux_8x1_4bit:m1|mux_8x1_1bit:m1" File: /home/ahmete/hw1/mux_8x1_4bit.v Line: 3
+Warning (13004): Presettable and clearable registers converted to equivalent circuits with latches. Registers power-up to an undefined state, and DEVCLRn places the registers in an undefined state.
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|temp[0]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|temp[0]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[0]~1" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|temp[1]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|temp[1]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[1]~5" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|temp[2]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|temp[2]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[2]~9" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|temp[3]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|temp[3]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[3]~13" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|temp[4]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|temp[4]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[4]~17" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|temp[5]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|temp[5]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[5]~21" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|temp[6]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|temp[6]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[6]~25" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|temp[7]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|temp[7]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[7]~29" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|temp[8]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|temp[8]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[8]~33" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|temp[9]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|temp[9]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[9]~37" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|temp[10]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|temp[10]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[10]~41" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|temp[11]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|temp[11]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[11]~45" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|temp[12]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|temp[12]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[12]~49" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|temp[13]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|temp[13]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[13]~53" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|temp[14]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|temp[14]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[14]~57" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|temp[15]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|temp[15]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[15]~61" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|temp[16]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|temp[16]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[16]~65" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|temp[17]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|temp[17]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[17]~69" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|temp[18]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|temp[18]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[18]~73" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|temp[19]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|temp[19]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[19]~77" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|temp[20]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|temp[20]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[20]~81" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|temp[21]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|temp[21]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[21]~85" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|temp[22]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|temp[22]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[22]~89" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|temp[23]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|temp[23]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[23]~93" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|temp[24]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|temp[24]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[24]~97" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|temp[25]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|temp[25]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[25]~101" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|temp[26]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|temp[26]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[26]~105" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|temp[27]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|temp[27]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[27]~109" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|temp[28]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|temp[28]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[28]~113" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|temp[29]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|temp[29]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[29]~117" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|temp[30]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|temp[30]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[30]~121" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|temp[31]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|temp[31]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[31]~125" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|res_s_t1[0]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|res_s_t1[0]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[0]~1" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|res_s_t1[1]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|res_s_t1[1]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[1]~5" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|res_s_t1[2]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|res_s_t1[2]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[2]~9" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|res_s_t1[3]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|res_s_t1[3]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[3]~13" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|res_s_t1[4]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|res_s_t1[4]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[4]~17" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|res_s_t1[5]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|res_s_t1[5]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[5]~21" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|res_s_t1[6]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|res_s_t1[6]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[6]~25" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|res_s_t1[7]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|res_s_t1[7]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[7]~29" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|res_s_t1[8]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|res_s_t1[8]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[8]~33" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|res_s_t1[9]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|res_s_t1[9]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[9]~37" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|res_s_t1[10]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|res_s_t1[10]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[10]~41" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|res_s_t1[11]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|res_s_t1[11]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[11]~45" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|res_s_t1[12]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|res_s_t1[12]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[12]~49" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|res_s_t1[13]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|res_s_t1[13]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[13]~53" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|res_s_t1[14]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|res_s_t1[14]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[14]~57" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|res_s_t1[15]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|res_s_t1[15]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[15]~61" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|res_s_t1[16]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|res_s_t1[16]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[16]~65" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|res_s_t1[17]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|res_s_t1[17]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[17]~69" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|res_s_t1[18]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|res_s_t1[18]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[18]~73" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|res_s_t1[19]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|res_s_t1[19]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[19]~77" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|res_s_t1[20]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|res_s_t1[20]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[20]~81" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|res_s_t1[21]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|res_s_t1[21]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[21]~85" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|res_s_t1[22]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|res_s_t1[22]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[22]~89" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|res_s_t1[23]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|res_s_t1[23]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[23]~93" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|res_s_t1[24]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|res_s_t1[24]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[24]~97" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|res_s_t1[25]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|res_s_t1[25]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[25]~101" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|res_s_t1[26]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|res_s_t1[26]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[26]~105" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|res_s_t1[27]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|res_s_t1[27]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[27]~109" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|res_s_t1[28]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|res_s_t1[28]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[28]~113" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|res_s_t1[29]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|res_s_t1[29]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[29]~117" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|res_s_t1[30]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|res_s_t1[30]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[30]~121" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|res_s_t1[31]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|res_s_t1[31]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[31]~125" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|res_s_t[0]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|res_s_t[0]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[0]~1" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|res_s_t[31]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|res_s_t[31]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[31]~125" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|res_s_t[30]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|res_s_t[30]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[30]~121" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|res_s_t[29]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|res_s_t[29]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[29]~117" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|res_s_t[28]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|res_s_t[28]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[28]~113" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|res_s_t[24]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|res_s_t[24]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[24]~97" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|res_s_t[25]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|res_s_t[25]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[25]~101" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|res_s_t[20]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|res_s_t[20]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[20]~81" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|res_s_t[21]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|res_s_t[21]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[21]~85" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|res_s_t[16]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|res_s_t[16]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[16]~65" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|res_s_t[17]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|res_s_t[17]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[17]~69" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|res_s_t[12]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|res_s_t[12]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[12]~49" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|res_s_t[13]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|res_s_t[13]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[13]~53" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|res_s_t[8]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|res_s_t[8]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[8]~33" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|res_s_t[9]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|res_s_t[9]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[9]~37" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|res_s_t[4]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|res_s_t[4]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[4]~17" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|res_s_t[5]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|res_s_t[5]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[5]~21" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|res_s_t[3]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|res_s_t[3]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[3]~13" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|res_s_t[1]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|res_s_t[1]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[1]~5" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|res_s_t[2]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|res_s_t[2]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[2]~9" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|res_s_t[7]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|res_s_t[7]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[7]~29" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|res_s_t[6]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|res_s_t[6]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[6]~25" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|res_s_t[11]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|res_s_t[11]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[11]~45" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|res_s_t[10]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|res_s_t[10]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[10]~41" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|res_s_t[15]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|res_s_t[15]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[15]~61" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|res_s_t[14]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|res_s_t[14]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[14]~57" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|res_s_t[19]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|res_s_t[19]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[19]~77" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|res_s_t[18]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|res_s_t[18]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[18]~73" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|res_s_t[23]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|res_s_t[23]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[23]~93" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|res_s_t[22]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|res_s_t[22]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[22]~89" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|res_s_t[27]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|res_s_t[27]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[27]~109" File: /home/ahmete/hw1/mod_dp.v Line: 21
+    Warning (13310): Register "mod_32bit:ins8|mod_dp:data_path|res_s_t[26]" is converted into an equivalent circuit using register "mod_32bit:ins8|mod_dp:data_path|res_s_t[26]~_emulated" and latch "mod_32bit:ins8|mod_dp:data_path|temp[26]~105" File: /home/ahmete/hw1/mod_dp.v Line: 21
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 600 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 69 input pins
+    Info (21059): Implemented 32 output pins
+    Info (21061): Implemented 499 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 132 warnings
+    Info: Peak virtual memory: 498 megabytes
+    Info: Processing ended: Sun Dec 10 19:44:03 2023
+    Info: Elapsed time: 00:00:07
+    Info: Total CPU time (on all processors): 00:00:18
+
+
